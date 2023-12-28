@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bi6rsmoj533g1"]
+[gd_scene load_steps=3 format=3 uid="uid://bi6rsmoj533g1"]
 
 [ext_resource type="Texture2D" uid="uid://b6qtfr0ygqhby" path="res://Assets/Background-road.png" id="1_h0b2w"]
+[ext_resource type="Script" path="res://Godot/FullScreen_Button.gd" id="2_32v0r"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Background-road2" type="Sprite2D" parent="."]
-position = Vector2(572.014, 323.278)
-scale = Vector2(0.144957, 0.144957)
+position = Vector2(634.919, 358.522)
+scale = Vector2(0.160638, 0.160638)
 texture = ExtResource("1_h0b2w")
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_right = 44.0
+offset_bottom = 24.0
+script = ExtResource("2_32v0r")
+
+[connection signal="toggled" from="CheckButton" to="CheckButton" method="_on_toggled"]
