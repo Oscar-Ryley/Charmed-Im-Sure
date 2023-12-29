@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://7e1wggw02u6o"]
+
+[ext_resource type="Texture2D" uid="uid://cx0av8wwprcrc" path="res://Assets/Zombie-idle.png" id="1_2l48i"]
+[ext_resource type="Texture2D" uid="uid://j2cwsbd66mto" path="res://Assets/Zombie-uncharmed.png" id="2_uur21"]
+[ext_resource type="Texture2D" uid="uid://bsx31wrkgaik5" path="res://Assets/Zombie-charmed.png" id="3_a1a3b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m55h0"]
+radius = 17.0
+height = 120.0
+
+[node name="Zombie" type="Node2D"]
+
+[node name="Uncharmable" type="Sprite2D" parent="."]
+position = Vector2(634, 329)
+scale = Vector2(0.0486667, 0.0486667)
+texture = ExtResource("1_2l48i")
+
+[node name="Charmable-not" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(633, 322)
+scale = Vector2(0.049, 0.049)
+texture = ExtResource("2_uur21")
+
+[node name="Charmable-charmed" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(633, 322)
+scale = Vector2(0.049, 0.049)
+texture = ExtResource("3_a1a3b")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(634, 331)
+shape = SubResource("CapsuleShape2D_m55h0")

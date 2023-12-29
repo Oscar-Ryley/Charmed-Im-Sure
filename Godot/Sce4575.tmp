@@ -24,13 +24,13 @@ script = ExtResource("2_32v0r")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("3_2nud7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(630, 396)
-shape = SubResource("CapsuleShape2D_nymey")
-
 [node name="Wizard-idle" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(644, 360)
 scale = Vector2(0.0595833, 0.0595833)
 texture = ExtResource("3_jrkim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(630, 396)
+shape = SubResource("CapsuleShape2D_nymey")
 
 [connection signal="toggled" from="CheckButton" to="CheckButton" method="_on_toggled"]
