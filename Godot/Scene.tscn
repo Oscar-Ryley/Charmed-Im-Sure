@@ -36,7 +36,8 @@ texture = ExtResource("3_jrkim")
 
 [node name="Charmed-Zombie" type="Sprite2D" parent="Wizard"]
 visible = false
-position = Vector2(635, 364)
+z_index = 5
+position = Vector2(-4, 24)
 scale = Vector2(0.049, 0.049)
 texture = ExtResource("4_vpyds")
 
