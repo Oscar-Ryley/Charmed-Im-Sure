@@ -1,12 +1,7 @@
 extends CharacterBody2D
 
+const SPEED = 70
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	position = Vector2(0,0)
-	move_and_slide()
+func _physics_process(delta):
+	var velocity = global_position.direction_to(Global.wizard_position)
+	move_and_collide(velocity * SPEED * delta)

@@ -3,6 +3,8 @@ extends CharacterBody2D
 var speed = 150
 
 func _process(delta):
+	Global.wizard_position = position
+	
 	if Input.is_key_pressed(KEY_D):
 		position.x += delta * speed
 	if Input.is_key_pressed(KEY_A):
