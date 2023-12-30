@@ -4,6 +4,7 @@ const bulletpath = preload("res://Godot/Charm.tscn")
 
 var speed = 150
 var shootable = true
+var deal_damage = false
 
 func die():
 	get_node("Wizard-idle").visible = false
@@ -74,3 +75,17 @@ func _on_timer_timeout():
 func _on_spirit_area_area_entered(area):
 	if area.get_name() == "Charmable2" and Global.dead == true:
 		revive()
+
+func _on_wizard_area_area_entered(area):
+	print(area.get_name())
+	if area.get_name() == "Charmable2" or area.get_name() == "Zombie-Area2D":
+		deal_damage = true
+
+func _on_attack_timer_timeout():
+	if deal_damage == true:
+		Global.health -= 1
+
+func _on_wizard_area_area_exited(area):
+	print(area.get_name())
+	if area.get_name() == "Charmable2" or area.get_name() == "Zombie-Area2D":
+		deal_damage = false

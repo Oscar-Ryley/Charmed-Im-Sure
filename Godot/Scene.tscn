@@ -138,11 +138,17 @@ offset_right = 183.0
 offset_bottom = 104.0
 script = ExtResource("8_jbke3")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Shooting-Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
+[node name="Attack-Timer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="toggled" from="CheckButton" to="CheckButton" method="_on_toggled"]
+[connection signal="area_entered" from="Wizard/Wizard-Area" to="Wizard" method="_on_wizard_area_area_entered"]
+[connection signal="area_exited" from="Wizard/Wizard-Area" to="Wizard" method="_on_wizard_area_area_exited"]
 [connection signal="area_entered" from="Wizard/Spirit-Area" to="Wizard" method="_on_spirit_area_area_entered"]
 [connection signal="timeout" from="Spawn_timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer" to="Wizard" method="_on_timer_timeout"]
+[connection signal="timeout" from="Shooting-Timer" to="Wizard" method="_on_timer_timeout"]
+[connection signal="timeout" from="Attack-Timer" to="Wizard" method="_on_attack_timer_timeout"]
