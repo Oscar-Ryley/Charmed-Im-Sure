@@ -4,16 +4,20 @@
 [ext_resource type="Script" path="res://Godot/Zombie.gd" id="1_kqfs0"]
 [ext_resource type="Texture2D" uid="uid://j2cwsbd66mto" path="res://Assets/Zombie-uncharmed.png" id="2_uur21"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m55h0"]
-radius = 22.0
-height = 120.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vm4o"]
 radius = 19.0
 height = 114.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m55h0"]
+radius = 22.0
+height = 120.0
+
 [node name="Zombie" type="CharacterBody2D"]
 script = ExtResource("1_kqfs0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(636, 331)
+shape = SubResource("CapsuleShape2D_6vm4o")
 
 [node name="Uncharmable" type="Sprite2D" parent="."]
 position = Vector2(634, 329)
@@ -26,15 +30,10 @@ position = Vector2(633, 322)
 scale = Vector2(0.049, 0.049)
 texture = ExtResource("2_uur21")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(636, 331)
 shape = SubResource("CapsuleShape2D_m55h0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(636, 331)
-shape = SubResource("CapsuleShape2D_6vm4o")
-
-[connection signal="body_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_entered"]
-[connection signal="body_exited" from="RigidBody2D" to="." method="_on_rigid_body_2d_body_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

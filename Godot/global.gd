@@ -4,6 +4,7 @@ extends Node
 var spawn_pos_list = [Vector2(-675,-350), Vector2(675, 350), Vector2(-675, 350), Vector2(675, -350)]
 var wizard_position = Vector2(0,0)
 var zombies = 0
+var kills = 0
 
 func spawn_zombie():
 	var obj = spawn_zombie_object.instantiate()
