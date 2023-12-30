@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://svw2sv1dk56y"
-path="res://.godot/imported/index.icon.png-c6f32046ddc15bdcd0bb88b488d16668.ctex"
+uid="uid://cvg3ntro8ytqf"
+path="res://.godot/imported/Wizard-idle-Recovered.png-06651c7b58d37488a4420d67397f49e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Web Export/index.icon.png"
-dest_files=["res://.godot/imported/index.icon.png-c6f32046ddc15bdcd0bb88b488d16668.ctex"]
+source_file="res://Assets/Branding/Asset showcase/Wizard-idle-Recovered.png"
+dest_files=["res://.godot/imported/Wizard-idle-Recovered.png-06651c7b58d37488a4420d67397f49e6.ctex"]
 
 [params]
 
