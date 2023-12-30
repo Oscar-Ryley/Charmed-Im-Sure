@@ -6,9 +6,11 @@ var wizard_position = Vector2(0,0)
 var zombies = 0
 var kills = 0
 
-func spawn_zombie():
+func spawn_zombie(charmable):
 	var obj = spawn_zombie_object.instantiate()
 	obj.position = spawn_pos_list[randi() % spawn_pos_list.size()]
+	if charmable:
+		obj.charmable = true
 	add_child(obj)
 
 # Called when the node enters the scene tree for the first time.
@@ -29,5 +31,8 @@ func _process(delta):
 		get_node("Spawn_timer").wait_time = 1
 
 func _on_timer_timeout():
-	spawn_zombie()
+	if randi_range(0, 4) == 4:
+		spawn_zombie(true)
+	else:
+		spawn_zombie(false)
 	zombies += 1
