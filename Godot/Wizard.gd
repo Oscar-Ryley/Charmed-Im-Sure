@@ -7,7 +7,21 @@ var shootable = true
 
 func die():
 	get_node("Wizard-idle").visible = false
+	get_node("Charmed-Zombie").visible = false
 	get_node("Spirit").visible = true
+	get_node("Wizard-Area").set_monitoring(false)
+	get_node("Spirit-Area").set_monitoring(true)
+	Global.dead = true
+
+func revive():
+	Global.health = 6
+	get_node("Spirit").visible = false
+	get_node("Charmed-Zombie").visible = true
+	get_node("Wizard-Area").set_monitoring(true)
+	get_node("Spirit-Area").set_monitoring(false)
+
+func ready():
+	get_node("Spirit-Area").set_monitoring(false)
 
 func _process(delta):
 	Global.wizard_position = position - Vector2(681,362)
@@ -23,7 +37,7 @@ func _process(delta):
 		position.y -= delta * speed
 	if Input.is_key_pressed(KEY_S):
 		position.y += delta * speed
-		
+
 	if Input.is_key_pressed(KEY_E):
 		Global.health = 0
 
@@ -56,3 +70,7 @@ func _process(delta):
 
 func _on_timer_timeout():
 	shootable = true
+
+func _on_spirit_area_area_entered(area):
+	if area.get_name() == "Charmable2" and Global.dead == true:
+		revive()

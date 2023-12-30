@@ -14,6 +14,7 @@ func _ready():
 	if charmable == true:
 		get_node("Charmable").visible = true
 		get_node("Uncharmable").visible = false
+		get_node("Zombie-Area2D").name = "Charmable"
 
 func _physics_process(delta):
 	var velocity = global_position.direction_to(Global.wizard_position)
@@ -32,8 +33,12 @@ func _process(delta):
 			get_node("Zombie-uncharmed-hurt").visible = true
 
 func _on_area_2d_area_entered(area):
-	if area.get_name() == "Wizard-Area":
+	if area.get_name() == "Wizard-Area" or area.get_name() == "Zombie-Area2D":
 		pass
+	elif area.get_name() == "Spirit-Area":
+		if charmable == true and Global.dead == true:
+			health = 0
+			Global.dead = false
 	else:
 		health -= 1
 

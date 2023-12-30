@@ -6,6 +6,7 @@ var wizard_position = Vector2(0,0)
 var zombies = 0
 var kills = 0
 var health = 6
+var dead = false
 
 func spawn_zombie(charmable):
 	var obj = spawn_zombie_object.instantiate()

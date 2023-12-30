@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bi6rsmoj533g1"]
+[gd_scene load_steps=16 format=3 uid="uid://bi6rsmoj533g1"]
 
 [ext_resource type="Script" path="res://Godot/global.gd" id="1_4ejgw"]
 [ext_resource type="Texture2D" uid="uid://b6qtfr0ygqhby" path="res://Assets/Background-road.png" id="1_h0b2w"]
@@ -17,6 +17,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nymey"]
 radius = 23.0
 height = 82.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7iad8"]
+radius = 34.0147
 
 [node name="Scene" type="Node2D"]
 script = ExtResource("1_4ejgw")
@@ -104,6 +107,12 @@ texture = ExtResource("4_vpyds")
 position = Vector2(-4.62503, 41.3749)
 shape = SubResource("CapsuleShape2D_nymey")
 
+[node name="Spirit-Area" type="Area2D" parent="Wizard"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wizard/Spirit-Area"]
+position = Vector2(-1, 15)
+shape = SubResource("CircleShape2D_7iad8")
+
 [node name="Dead-Wizard" type="Sprite2D" parent="."]
 visible = false
 z_index = -1
@@ -134,5 +143,6 @@ wait_time = 0.5
 autostart = true
 
 [connection signal="toggled" from="CheckButton" to="CheckButton" method="_on_toggled"]
+[connection signal="area_entered" from="Wizard/Spirit-Area" to="Wizard" method="_on_spirit_area_area_entered"]
 [connection signal="timeout" from="Spawn_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="Wizard" method="_on_timer_timeout"]
