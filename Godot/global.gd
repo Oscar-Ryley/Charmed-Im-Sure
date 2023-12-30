@@ -17,12 +17,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if zombies == 20:
+	if zombies == 10:
 		get_node("Spawn_timer").wait_time = 4
-	elif zombies == 60:
+	elif zombies == 20:
 		get_node("Spawn_timer").wait_time = 3
-	elif zombies == 150:
+	elif zombies == 30:
 		get_node("Spawn_timer").wait_time = 2
+	elif zombies == 60:
+		get_node("Spawn_timer").wait_time = 1.5
+	elif zombies == 100:
+		get_node("Spawn_timer").wait_time = 1
 
 func _on_timer_timeout():
 	spawn_zombie()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi6rsmoj533g1"]
+[gd_scene load_steps=10 format=3 uid="uid://bi6rsmoj533g1"]
 
 [ext_resource type="Script" path="res://Godot/global.gd" id="1_4ejgw"]
 [ext_resource type="Texture2D" uid="uid://b6qtfr0ygqhby" path="res://Assets/Background-road.png" id="1_h0b2w"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://co6p7oeurbdu" path="res://Assets/Wizard-idle.png" id="3_jrkim"]
 [ext_resource type="Texture2D" uid="uid://dc3yl3drqcup4" path="res://Assets/Wizard-dead.png" id="4_o7qy8"]
 [ext_resource type="Texture2D" uid="uid://bsx31wrkgaik5" path="res://Assets/Zombie-charmed.png" id="4_vpyds"]
+[ext_resource type="Script" path="res://Godot/KillCount.gd" id="8_jbke3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nymey"]
 radius = 23.0
@@ -58,5 +59,17 @@ texture = ExtResource("1_h0b2w")
 wait_time = 5.0
 autostart = true
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 85.0
+offset_top = 6.0
+offset_right = 183.0
+offset_bottom = 104.0
+script = ExtResource("8_jbke3")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="toggled" from="CheckButton" to="CheckButton" method="_on_toggled"]
 [connection signal="timeout" from="Spawn_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Wizard" method="_on_timer_timeout"]
