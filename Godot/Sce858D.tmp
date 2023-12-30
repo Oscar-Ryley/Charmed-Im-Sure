@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bi6rsmoj533g1"]
+[gd_scene load_steps=13 format=3 uid="uid://bi6rsmoj533g1"]
 
 [ext_resource type="Script" path="res://Godot/global.gd" id="1_4ejgw"]
 [ext_resource type="Texture2D" uid="uid://b6qtfr0ygqhby" path="res://Assets/Background-road.png" id="1_h0b2w"]
@@ -10,9 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://co6p7oeurbdu" path="res://Assets/Wizard-idle.png" id="3_jrkim"]
 [ext_resource type="Texture2D" uid="uid://dc3yl3drqcup4" path="res://Assets/Wizard-dead.png" id="4_o7qy8"]
 [ext_resource type="Texture2D" uid="uid://bsx31wrkgaik5" path="res://Assets/Zombie-charmed.png" id="4_vpyds"]
-[ext_resource type="Texture2D" uid="uid://cyasppxecjuoj" path="res://Assets/Spirit.png" id="8_0rnfr"]
 [ext_resource type="Script" path="res://Godot/KillCount.gd" id="8_jbke3"]
-[ext_resource type="Script" path="res://Godot/Dead-Wizard.gd" id="10_7gb0m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nymey"]
 radius = 23.0
@@ -25,7 +23,7 @@ script = ExtResource("1_4ejgw")
 script = ExtResource("2_jv6x4")
 
 [node name="Heart1" type="Node2D" parent="Hearts"]
-position = Vector2(1243, 37)
+position = Vector2(1243, 35)
 
 [node name="Full" type="Sprite2D" parent="Hearts/Heart1"]
 position = Vector2(-1, -2)
@@ -85,12 +83,6 @@ position = Vector2(9.375, 5.375)
 scale = Vector2(0.0595833, 0.0595833)
 texture = ExtResource("3_jrkim")
 
-[node name="Spirit" type="Sprite2D" parent="Wizard"]
-visible = false
-position = Vector2(-2, 15)
-scale = Vector2(0.025, 0.025)
-texture = ExtResource("8_0rnfr")
-
 [node name="Charmed-Zombie" type="Sprite2D" parent="Wizard"]
 visible = false
 z_index = 5
@@ -110,7 +102,6 @@ z_index = -1
 position = Vector2(539, 381)
 scale = Vector2(0.07, 0.07)
 texture = ExtResource("4_o7qy8")
-script = ExtResource("10_7gb0m")
 
 [node name="Background-road2" type="Sprite2D" parent="."]
 z_index = -5
