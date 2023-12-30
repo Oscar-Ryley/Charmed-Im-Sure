@@ -14,12 +14,17 @@ func _physics_process(delta):
 	move_and_collide(velocity * SPEED * delta)
 
 func _process(delta):
-	if health < 0:
+	if health <= 0:
 		queue_free()
 		Global.kills += 1
 		if charmable == true:
 			#spawn a charm where dead
 			pass
+	if health == 2:
+		if charmable == false:
+			get_node("Zombie-hurt").visible = true
+		else:
+			get_node("Zombie-uncharmed-hurt").visible = true
 
 func _on_area_2d_area_entered(area):
 	health -= 1
