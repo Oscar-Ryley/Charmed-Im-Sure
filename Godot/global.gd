@@ -13,11 +13,9 @@ func spawn_zombie(charmable):
 		obj.charmable = true
 	add_child(obj)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if zombies == 10:
 		get_node("Spawn_timer").wait_time = 4

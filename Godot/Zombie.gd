@@ -1,8 +1,14 @@
 extends CharacterBody2D
 
+@export var spawn_crystal_object = preload("res://Godot/crystal_pickup.tscn")
 const SPEED = 70
 var health = 5
 var charmable = false
+
+func spawn_crystal():
+	var obj = spawn_crystal_object.instantiate()
+	get_node("/root/Scene").add_child(obj)
+	obj.position = position + Vector2(636, 331)
 
 func _ready():
 	if charmable == true:
@@ -18,8 +24,7 @@ func _process(delta):
 		queue_free()
 		Global.kills += 1
 		if charmable == true:
-			#spawn a charm where dead
-			pass
+			spawn_crystal()
 	if health == 2:
 		if charmable == false:
 			get_node("Zombie-hurt").visible = true
@@ -27,5 +32,8 @@ func _process(delta):
 			get_node("Zombie-uncharmed-hurt").visible = true
 
 func _on_area_2d_area_entered(area):
-	health -= 1
+	if area.get_name() == "Wizard-Area":
+		pass
+	else:
+		health -= 1
 
