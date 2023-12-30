@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var spawn_crystal_object = preload("res://Godot/crystal_pickup.tscn")
-const SPEED = 70
+const SPEED = 80
 var health = 5
 var charmable = false
 
